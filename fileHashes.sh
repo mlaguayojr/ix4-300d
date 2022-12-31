@@ -11,13 +11,10 @@
 directory="./Automations"
 file="$directory/md5sum.json"
 log_directory="$directory/logs"
-
-# make directory if path does not exist
 if [ ! -d "$log_directory" ]; then
-  mkdir "$log_directory"
+  mkdir -p "$log_directory"
 fi
 
-# archive last run
 if [ -f "$file" ]; then
   mv "$file" "$log_directory/md5sum_$(date +%Y_%m_%d).json"
 fi
